@@ -6,10 +6,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-    replaces = [
-        ('social_auth', '0005_auto_20160727_2333')
-    ]
-
     dependencies = [
         ('social_django', '0004_auto_20160423_0400'),
     ]
@@ -19,4 +15,9 @@ class Migration(migrations.Migration):
             name='association',
             unique_together=set([('server_url', 'handle')]),
         ),
+        migrations.RunSQL("INSERT INTO django_migrations (app, name, applied) VALUES ('social_auth', '0001_initial', current_timestamp);", migrations.RunSQL.noop),
+        migrations.RunSQL("INSERT INTO django_migrations (app, name, applied) VALUES ('social_auth', '0002_add_related_name', current_timestamp);", migrations.RunSQL.noop),
+        migrations.RunSQL("INSERT INTO django_migrations (app, name, applied) VALUES ('social_auth', '0003_alter_email_max_length', current_timestamp);", migrations.RunSQL.noop),
+        migrations.RunSQL("INSERT INTO django_migrations (app, name, applied) VALUES ('social_auth', '0004_auto_20160423_0400', current_timestamp);", migrations.RunSQL.noop),
+        migrations.RunSQL("INSERT INTO django_migrations (app, name, applied) VALUES ('social_auth', '0005_auto_20160727_2333', current_timestamp);", migrations.RunSQL.noop),
     ]
